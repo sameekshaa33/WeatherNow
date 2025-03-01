@@ -7,7 +7,6 @@ const weathericon=document.querySelector(".weather-icon")
 
 async function checkWeather(city) { // for fetching weather data
   const response = await fetch(apiUrl + city + `&appid=${apikey}`); // dynamically add city to the URL
-   // process the response as JSON
   
 
   // Handling case if the city is not found (invalid city)
