@@ -4,19 +4,66 @@
     font-family:'Arial';
     box-sizing: border-box;
 }
-body{
-    background-color: #E6E6FA;
-}
-.card{
-    width:90%;
-    max-width:470px;
-    background:  #5b548a;
-    color:#fff;
-    margin:100px auto 0;
+/* Background Animation - Smooth Gradient Waves */
+@keyframes bgWave {
+    0% { background: linear-gradient(120deg, #555, #666, #777); }
+    50% { background: linear-gradient(120deg, #666, #777, #888); }
+    100% { background: linear-gradient(120deg, #555, #666, #777); }
+  }
+  
+  body {
+    background: #555;
+    animation: bgWave 8s infinite alternate;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Weather Card - Centered & Styled */
+  .card {
+    width: 90%;
+    max-width: 470px;
+    background: rgba(85, 85, 85, 0.8); /* Transparent effect */
+    color: #fff;
     border-radius: 20px;
-    padding:40px 35px;
-    text-align:center;
-}
+    padding: 40px 35px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* Soft Glass effect */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+  }
+  
+  /* Fix Text Dullness on Hover */
+  .card:hover {
+    transform: scale(1.02);
+    background: rgba(85, 85, 85, 0.9); /* Slightly more solid */
+    color: #ffffff; /* Keep text bright */
+  }
+  
+  /* Moving Light Overlay */
+  .card::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 10%, transparent 80%);
+    animation: moveLight 5s linear infinite;
+  }
+  
+  /* Animation for Light Scrolling Effect */
+  @keyframes moveLight {
+    0% { transform: translateX(-100%) translateY(-100%); }
+    100% { transform: translateX(100%) translateY(100%); }
+  }
+  
+  
 .search{
     width:100%;
     display:flex;
@@ -84,4 +131,14 @@ body{
     font-size:28px;
     margin-top:-6px;
 
+}
+.weather{
+    display:none;
+}
+.error{
+    text-align:left;
+    margin-left:10px;
+    font-size: 14px;
+    margin-top:10px;
+    display:none;
 }
