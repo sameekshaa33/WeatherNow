@@ -1,4 +1,5 @@
 🌤 WeatherNow 🌍  
+Live website-https://wheathernoww.netlify.app/
 
 WeatherNow is a simple web app that lets users check real-time weather updates by entering a city name. It uses the **OpenWeather API** to fetch and display the latest temperature, humidity, and weather conditions in a user-friendly format.  
 
